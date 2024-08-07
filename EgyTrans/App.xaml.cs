@@ -17,7 +17,6 @@ namespace EgyTrans
                 MainPage = new AppShell();
 
 
-
             }
             catch (Exception ex)
             {
