@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.Cars.EditCarDataPage"
+             Title="EditCarDataPage">
+    <StackLayout Padding="20">
+        <Label Text="Car Brand:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="CarPrandEntry" Placeholder="Car Brand"/>
+        <Label Text="Car Model:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="CarModelEntry" Placeholder="Car Model"/>
+
+
+        <Label Text="Car Number:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="CarNumEntry" Placeholder="Car Number" Keyboard="Numeric"/>
+        
+        <Label Text="Price per Day:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="CarPrinceByDayEntry" Placeholder="Price per Day" Keyboard="Numeric"/>
+        
+        <Label Text="Price per Hour:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="CarPrinceByHourEntry" Placeholder="Price per Hour" Keyboard="Numeric"/>
+
+        <Label Text="Car Description:" FontAttributes="Bold" FontSize="16"/>
+        <Editor x:Name="CarDescriptionEditor" Placeholder="Car Description" HeightRequest="100"/>
+        <Button Text="Save Changes" Clicked="OnSaveChangesClicked"/>
+    </StackLayout>
+
+</ContentPage>

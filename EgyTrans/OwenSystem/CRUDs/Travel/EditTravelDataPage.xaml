@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.Travel.EditTravelDataPage"
+             Title="Edit Travel Data Page">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Picker x:Name="ClientPicker" Title="Select Client" ItemDisplayBinding="{Binding ClientName}" />
+            <Picker x:Name="TypePicker" Title="Select Type" ItemDisplayBinding="{Binding TypeName}" />
+            <DatePicker x:Name="TransferDatePicker" />
+            <Entry x:Name="NetCostEntry" Placeholder="Net Cost" Keyboard="Numeric" />
+            <Entry x:Name="SellingPriceEntry" Placeholder="Selling Price" Keyboard="Numeric" />
+            <Entry x:Name="ProfitEntry" Placeholder="Profit" Keyboard="Numeric" />
+            <Picker x:Name="StatusPicker" Title="Select Status">
+                <Picker.Items>
+                    <x:String>Pending</x:String>
+                    <x:String>Confirmed</x:String>
+                    <x:String>Completed</x:String>
+                    <x:String>Cancelled</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Selected Cars" FontAttributes="Bold" Margin="0,10,0,0" />
+            <CollectionView x:Name="SelectedCarsCollectionView" HeightRequest="100">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding CarPrand}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Select Cars" Clicked="OnSelectCarsClicked" />
+
+            <Label Text="Selected Drivers" FontAttributes="Bold" Margin="0,10,0,0" />
+            <CollectionView x:Name="SelectedDriversCollectionView" HeightRequest="100">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding DriverName}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Select Drivers" Clicked="OnSelectDriversClicked" />
+
+            <Label Text="Selected Suppliers" FontAttributes="Bold" Margin="0,10,0,0" />
+            <CollectionView x:Name="SelectedSuppliersCollectionView" HeightRequest="100">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding SupplierName}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Select Suppliers" Clicked="OnSelectSuppliersClicked" />
+
+            <Label Text="Guide Info" FontAttributes="Bold" Margin="0,10,0,0" />
+            <CollectionView x:Name="SelectedTourGuidesCollectionView" HeightRequest="100">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding GuideName}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Add Travel Info" Clicked="OnSelectTourGuideClicked" />
+
+            <Label Text="Travel Info" FontAttributes="Bold" Margin="0,10,0,0" />
+            <CollectionView x:Name="SelectedTravelInfosCollectionView" HeightRequest="100">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding TransferFrom, StringFormat='From: {0}'}" />
+                            <Label Text="{Binding TransferTo, StringFormat='To: {0}'}" />
+                            <Label Text="{Binding AtDay, StringFormat='Date: {0:yyyy-MM-dd}'}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Add Travel Info" Clicked="OnSelectTravelInfoClicked" />
+            
+            
+            
+
+            <Button Text="Save Changes" Clicked="OnSaveTravelDataClicked" Margin="0,20,0,0" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

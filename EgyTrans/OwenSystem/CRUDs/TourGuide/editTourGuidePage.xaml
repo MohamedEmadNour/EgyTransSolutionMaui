@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.TourGuide.editTourGuidePage"
+             Title="editTourGuidePage">
+    <StackLayout Padding="20">
+        <Label Text="Guide Name:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="GuideNameEntry" Placeholder="Guide Name"/>
+
+        <Label Text="Guide Language:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="GuideLanguageEntry" Placeholder="Guide Language"/>
+
+        <Label Text="Guide Phone:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="GuidePhoneEntry" Placeholder="Guide Phone" Keyboard="Numeric"/>
+
+        <Label Text="Guide Price:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="GuidePriceEntry" Placeholder="Guide Price" Keyboard="Numeric"/>
+
+
+        <Button Text="Save Changes" Clicked="OnSaveChangesClicked"/>
+    </StackLayout>
+</ContentPage>

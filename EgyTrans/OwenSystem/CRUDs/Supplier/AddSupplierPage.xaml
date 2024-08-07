@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.Supplier.AddSupplierPage"
+             Title="AddSupplierPage">
+    <Grid RowDefinitions="Auto, 0.3*, 0.4*">
+        <!-- Search Bar -->
+        <Entry Grid.Row="0"
+               Placeholder="Search..." 
+               Text="{Binding SearchText}"
+               HorizontalOptions="FillAndExpand"
+               Margin="20,10,20,10" />
+
+        <!-- Add New Supplier Form (top 30%) -->
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="20">
+                <Label Text="Add New Supplier" FontSize="Large" FontAttributes="Bold"/>
+
+                <Label Text="Supplier Name:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding supplierData.SupplierName}" Placeholder="Supplier Name"/>
+
+                <Label Text="Supplier Phone:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding supplierData.SupplierPhone}" Placeholder="Supplier Phone" Keyboard="Numeric"/>
+
+                <Button Text="Add Supplier Data" Clicked="AddsupplierDataButton_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Existing Suppliers List (bottom 55%) -->
+        <ScrollView Grid.Row="2">
+            <StackLayout Padding="20">
+                <Label Text="Existing Suppliers" FontSize="Large" FontAttributes="Bold"/>
+                <CollectionView ItemsSource="{Binding Suppliers}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding SupplierName}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding SupplierPhone, StringFormat='Phone: {0}'}"/>
+                                </StackLayout>
+                                <Button Grid.Column="1" Text="Edit" Clicked="OnEditSupplierClicked" CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

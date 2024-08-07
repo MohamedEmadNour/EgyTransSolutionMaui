@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.Supplier.EditSupplierPage"
+             Title="EditSupplierPage">
+    <StackLayout Padding="20">
+        <Label Text="Supplier Name:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="SupplierNameEntry" Placeholder="Supplier Name"/>
+
+        <Label Text="Supplier Phone:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="SupplierPhoneEntry" Placeholder="Supplier Phone" Keyboard="Numeric"/>
+
+        <Button Text="Save Changes" Clicked="OnSaveChangesClicked"/>
+    </StackLayout>
+</ContentPage>

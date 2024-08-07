@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.Cars.AddCarDataPage"
+             Title="AddCarDataPage">
+    <Grid RowDefinitions="Auto, 0.3*, 0.4*">
+        <!-- Search Bar -->
+        <Entry Grid.Row="0"
+               Placeholder="Search..." 
+               Text="{Binding SearchText}"
+               HorizontalOptions="FillAndExpand"
+               Margin="20,10,20,10" />
+
+        <!-- Add New Car Form (top 30%) -->
+        <ScrollView Grid.Row="1">
+            <StackLayout  Padding="20">
+                <Label Text="Add New Car" FontSize="Large" FontAttributes="Bold"/>
+
+                <Label Text="Car Brand:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding CarData.CarPrand}" Placeholder="Car Brand"/>
+
+                <Label Text="Car Model:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding CarData.CarModel}" Placeholder="Car Model"/>
+
+                <Label Text="Car Number:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding CarData.CarNum}" Placeholder="Car Number"/>
+
+                <Label Text="Price per Day:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding CarData.CarPrincebyDay}" Placeholder="Price per Day" Keyboard="Numeric"/>
+
+                <Label Text="Price per Hour:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding CarData.CarPrincebyHour}" Placeholder="Price per Hour" Keyboard="Numeric"/>
+
+                <Label Text="Car Description:" FontAttributes="Bold" FontSize="16"/>
+                <Editor Text="{Binding CarData.CarDescription}" Placeholder="Car Description" HeightRequest="100"/>
+
+                <Button Text="Add Car" Clicked="AddCarButton_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Existing Cars List (bottom 55%) -->
+        <ScrollView Grid.Row="2">
+            <StackLayout Padding="20">
+                <Label Text="Existing Cars" FontSize="Large" FontAttributes="Bold"/>
+                <CollectionView ItemsSource="{Binding Cars}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding CarPrand}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding CarModel}"/>
+                                    <Label Text="{Binding CarNum, StringFormat='Car Number: {0}'}"/>
+                                </StackLayout>
+                                <Button Grid.Column="1" Text="Edit" Clicked="OnEditCarClicked" CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

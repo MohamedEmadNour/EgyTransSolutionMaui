@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.Clients.AddClientPage"
+             Title="AddClientPage">
+    <Grid RowDefinitions="Auto, 0.3*, 0.4*">
+        <!-- Search Bar -->
+        <Entry Grid.Row="0"
+               Placeholder="Search..." 
+               Text="{Binding SearchText}"
+               HorizontalOptions="FillAndExpand"
+               Margin="20,10,20,10" />
+
+        <!-- Add New Client Form (top 30%) -->
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="20">
+                <Label Text="Add New Client" FontSize="Large" FontAttributes="Bold"/>
+
+                <Label Text="Client Name:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding ClientData.ClientName}" Placeholder="Client Name"/>
+
+                <Label Text="Email:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding ClientData.Email}" Placeholder="Email"/>
+
+                <Label Text="Phone Number:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding ClientData.PhoneNumber}" Placeholder="Phone Number" Keyboard="Numeric"/>
+
+                <Label Text="Type of Contact:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding ClientData.TypeOfContact}" Placeholder="Type of Contact"/>
+
+                <Label Text="Country:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding ClientData.Country}" Placeholder="Country"/>
+
+                <Label Text="Persons Count:" FontAttributes="Bold" FontSize="16"/>
+                <Entry Text="{Binding ClientData.PersonsCount}" Placeholder="Persons Count" Keyboard="Numeric"/>
+
+                <Button Text="Add Client Data" Clicked="AddClientButton_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Existing Clients List (bottom 55%) -->
+        <ScrollView Grid.Row="2">
+            <StackLayout Padding="20">
+                <Label Text="Existing Clients" FontSize="Large" FontAttributes="Bold"/>
+                <CollectionView ItemsSource="{Binding Clients}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding ClientName}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Email}"/>
+                                    <Label Text="{Binding PhoneNumber, StringFormat='Phone Number: {0}'}"/>
+                                </StackLayout>
+                                <Button Grid.Column="1" Text="Edit" Clicked="OnEditClientClicked" CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

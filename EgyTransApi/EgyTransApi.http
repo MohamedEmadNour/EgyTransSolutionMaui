@@ -1,0 +1,6 @@
+@EgyTransApi_HostAddress = http://localhost:5143
+
+GET {{EgyTransApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

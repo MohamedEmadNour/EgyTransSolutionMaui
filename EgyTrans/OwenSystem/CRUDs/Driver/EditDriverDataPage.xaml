@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.Driver.EditDriverDataPage"
+             Title="EditDriverDataPage">
+    
+    <StackLayout Padding="20">
+        <Label Text="Driver Name:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="DriverNameEntry" Placeholder="Driver Name"/>
+
+        <Label Text="Driver Phone:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="DriverPhoneEntry" Placeholder="Driver Phone" Keyboard="Numeric"/>
+
+        <Label Text="Driver Price:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="DriverPriceEntry" Placeholder="Driver Price" Keyboard="Numeric"/>
+
+        <Label Text="Driver Tips:" FontAttributes="Bold" FontSize="16"/>
+        <Entry x:Name="DriverTipsEntry" Placeholder="Driver Tips" Keyboard="Numeric"/>
+
+        <Button Text="Save Changes" Clicked="OnSaveChangesClicked"/>
+    </StackLayout>
+</ContentPage>

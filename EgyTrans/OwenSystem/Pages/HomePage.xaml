@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.Pages.HomePage">
+    <VerticalStackLayout Padding="5">
+        <Entry Placeholder="Search..." 
+               Text="{Binding SearchText}" 
+               HorizontalOptions="FillAndExpand"
+               Margin="0,10,0,10" />
+        <CarouselView 
+                  x:Name="TravelDataCarouselView"
+                  ItemsSource="{Binding TravelDataList}"
+                  Loop="False"
+                  PeekAreaInsets="0,0,0,0"
+                  IndicatorView="indicatorView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="0.9*, Auto">
+                        <Frame Grid.Row="0" BackgroundColor="Grey">
+                            <Frame BackgroundColor="Red" Margin="5,0,5,25" Padding="5,5,5,5">
+                                <Frame Padding="10">
+                                    <Frame.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="Black" Offset="0.0" />
+                                            <GradientStop Color="DimGray" Offset="1.0" />
+                                        </LinearGradientBrush>
+                                    </Frame.Background>
+                                    <ScrollView>
+                                        <StackLayout Spacing="10">
+                                            <Label Text="{Binding Client.ClientName , StringFormat='Client ID: {0}'}" TextColor="White" />
+                                            <Label Text="{Binding Type.TypeName , StringFormat='Type ID: {0}'}" TextColor="White" />
+                                            <Label Text="{Binding TransferDateTime, StringFormat='Transfer Date/Time: {0}'}" TextColor="White" />
+                                            <Label Text="{Binding VehicleType, StringFormat='Vehicle Type: {0}'}" TextColor="White" />
+                                            <Label Text="{Binding NetCost, StringFormat='Net Cost: {0:C}'}" TextColor="White" />
+                                            <Label Text="{Binding SellingPrice, StringFormat='Selling Price: {0:C}'}" TextColor="White" />
+                                            <Label Text="{Binding Profit, StringFormat='Profit: {0:C}'}" TextColor="White" />
+                                            <Label Text="{Binding Status, StringFormat='Status: {0}'}" TextColor="White" />
+
+                                            <Label Text="Cars:" TextColor="White" FontAttributes="Bold" />
+                                            <CollectionView ItemsSource="{Binding Cars}">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Label Text="{Binding CarPrand}" TextColor="White" />
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+
+                                            <Label Text="Drivers:" TextColor="White" FontAttributes="Bold" />
+                                            <CollectionView ItemsSource="{Binding Drivers}">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Label Text="{Binding DriverName}" TextColor="White" />
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+
+                                            <Label Text="Suppliers:" TextColor="White" FontAttributes="Bold" />
+                                            <CollectionView ItemsSource="{Binding Suppliers}">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Label Text="{Binding SupplierName}" TextColor="White" />
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+
+                                            <Label Text="Travel Info:" TextColor="White" FontAttributes="Bold" />
+                                            <CollectionView ItemsSource="{Binding TravelInfos}">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout>
+                                                            <Label Text="{Binding TransferFrom, StringFormat='From: {0}'}" TextColor="White" />
+                                                            <Label Text="{Binding TransferTo, StringFormat='To: {0}'}" TextColor="White" />
+                                                            <Label Text="{Binding AtDay, StringFormat='Date: {0:yyyy-MM-dd}'}" TextColor="White" />
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+                                        </StackLayout>
+                                    </ScrollView>
+                                </Frame>
+                            </Frame>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView x:Name="indicatorView" Margin="5" HorizontalOptions="Center" IndicatorColor="Green" SelectedIndicatorColor="Red" />
+    </VerticalStackLayout>
+</ContentPage>

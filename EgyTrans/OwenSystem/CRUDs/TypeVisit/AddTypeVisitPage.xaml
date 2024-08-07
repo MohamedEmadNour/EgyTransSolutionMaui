@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgyTrans.OwenSystem.CRUDs.TypeVisit.AddTypeVisitPage"
+             Title="Add Type Visit Page">
+    <StackLayout Padding="10">
+        <Entry Placeholder="Search..." 
+               Text="{Binding SearchText, Mode=TwoWay}" 
+               HorizontalOptions="FillAndExpand"
+               Margin="0,10,0,10" />
+
+        <Grid RowDefinitions="600, Auto">
+            <Frame Grid.Row="0" BackgroundColor="Grey">
+                <Frame BackgroundColor="Red" Margin="5,0,5,25" Padding="5,5,5,5">
+                    <Frame Padding="10">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="Grey" Offset="0.0" />
+                                <GradientStop Color="DarkBlue" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <ScrollView>
+                            <StackLayout>
+                                <StackLayout Orientation="Vertical" Spacing="10" Padding="5">
+                                    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0">
+                                            <Label Text="Type Name:" Grid.Column="0" Style="{StaticResource LabelStyle}" />
+                                            <Entry Placeholder="Type Name" Grid.Column="1" Text="{Binding ClientTypeVisit.TypeName, Mode=TwoWay}" Style="{StaticResource EntryStyle}" />
+                                            <Button Text="Add Type Data" Grid.Column="2" Clicked="AddTypeVisitButton_Clicked" Style="{StaticResource ButtonStyle}" />
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                                <CarouselView 
+                                    x:Name="ClientTypeVisitAllDataCarouselView"
+                                    Loop="False"
+                                    PeekAreaInsets="0,0,0,0"
+                                    IndicatorView="indicatorView"
+                                    PositionChanged="OnPositionChanged">
+                                    <CarouselView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid RowDefinitions="Auto, Auto">
+                                                <StackLayout Orientation="Vertical" Spacing="10" Padding="5">
+                                                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto">
+                                                        <Label Text="Type Name:" FontAttributes="Bold" FontSize="16" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                                        <Label Text="{Binding TypeName}" FontSize="16" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Button Text="Edit" Clicked="ButtonEditTypeVisitData_Clicked" WidthRequest="100" />
+                                                </StackLayout>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </CarouselView.ItemTemplate>
+                                </CarouselView>
+                            </StackLayout>
+                        </ScrollView>
+                    </Frame>
+                </Frame>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

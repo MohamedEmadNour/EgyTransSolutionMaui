@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="EgyTrans.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:EgyTrans"
+    xmlns:pages="clr-namespace:EgyTrans.OwenSystem.Pages"
+    xmlns:controls="clr-namespace:EgyTrans.OwenSystem.Pages"
+    xmlns:Clintpages="clr-namespace:EgyTrans.OwenSystem.CRUDs.Clients"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="True"
+    Title="EgyTrans">
+
+    <TabBar>
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:HomePage}" />
+        </Tab>
+        <Tab Title="Settings" Icon="settings.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:SettingsPage}" />
+        </Tab>
+        <Tab Title="clients" Icon="clients.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:ClientsPage}" />
+        </Tab>
+        <Tab Title="Reports" Icon="statistics.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:ReportsPage}" />
+        </Tab>
+    </TabBar>
+</Shell>
